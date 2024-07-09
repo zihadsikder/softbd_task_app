@@ -16,7 +16,7 @@ class MainBottomNavView extends GetView<MainBottomNavController> {
         child: Container(
           width: 70,
             height: 70,
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               color: Color(0xff518852),
               shape: BoxShape.circle,
               // border: Border.all(
@@ -24,12 +24,12 @@ class MainBottomNavView extends GetView<MainBottomNavController> {
               //   width: 4.0
               // )
             ),
-            child: Icon(Icons.camera_alt_outlined,color: Colors.black,)),
+            child: const Icon(Icons.camera_alt_outlined,color: Colors.black,)),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
         padding: EdgeInsets.zero,
-        shape: CircularNotchedRectangle(),
+        shape: const CircularNotchedRectangle(),
         notchMargin: 6.0,
         child: Obx(() => BottomNavigationBar(
           backgroundColor: Colors.grey,
@@ -54,10 +54,9 @@ class MainBottomNavView extends GetView<MainBottomNavController> {
           ],
           onTap: controller.changeIndex,
           type: BottomNavigationBarType.fixed,
-
           currentIndex: controller.currentIndex,
           selectedItemColor: Colors.black,
-          unselectedItemColor: Colors.black,
+          unselectedItemColor: Colors.black38,
           showUnselectedLabels: true,
           showSelectedLabels: true,
         )),

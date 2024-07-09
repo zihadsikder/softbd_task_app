@@ -15,8 +15,6 @@ class MainBottomNavController extends GetxController {
   List screens = [
     HomeView(),
     TimeView(),
-    HomeView(),
-    TimeView(),
   ];
 
   void changeIndex(int index) {

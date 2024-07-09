@@ -7,7 +7,7 @@ class AppTextStyles {
       fontWeight: FontWeight.w500,
       fontSize: fontSize,
       color: color,
-      letterSpacing: 1.7,
+      //letterSpacing: 1.7,
       height: 1.5,
     );
   }
@@ -17,18 +17,18 @@ class AppTextStyles {
     return TextStyle(
       fontSize: fontSize,
       color: color,
-      letterSpacing: 1.7,
+      //letterSpacing: 1.7,
       height: 1.5,
     );
   }
 
   static TextStyle normalStyle(
-      {Color color = Colors.black, double fontSize = 14}) {
+      {Color color = Colors.black, double fontSize = 16}) {
     return TextStyle(
       fontWeight: FontWeight.w500,
       fontSize: fontSize,
       color: color,
-      letterSpacing: 1.7,
+      //letterSpacing: 1.7,
       height: 1.5,
     );
   }
