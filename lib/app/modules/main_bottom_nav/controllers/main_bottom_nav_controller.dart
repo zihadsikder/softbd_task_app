@@ -3,9 +3,9 @@ import 'package:softbd_task/app/modules/home/views/home_view.dart';
 import 'package:softbd_task/app/modules/time/views/time_view.dart';
 
 class MainBottomNavController extends GetxController {
-  int selectedIndex = 0;
+  var selectedIndex = 0.obs; // Use RxInt for reactivity
 
-  int get currentIndex => selectedIndex;
+  int get currentIndex => selectedIndex.value;
 
   @override
   void onInit() {
@@ -15,15 +15,16 @@ class MainBottomNavController extends GetxController {
   List screens = [
     HomeView(),
     TimeView(),
+    HomeView(),
+    TimeView(),
   ];
 
   void changeIndex(int index) {
-    if (selectedIndex == index) {
+    if (selectedIndex.value == index) {
       return;
     }
 
-    selectedIndex = index;
-    update();
+    selectedIndex.value = index; // Update the reactive variable
   }
 
   void backToHome() {
