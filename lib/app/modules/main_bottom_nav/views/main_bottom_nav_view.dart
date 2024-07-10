@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:softbd_task/app/core/config/app_colors.dart';
 import '../controllers/main_bottom_nav_controller.dart';
 
 class MainBottomNavView extends GetView<MainBottomNavController> {
-  MainBottomNavView({Key? key}) : super(key: key);
+  const MainBottomNavView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +25,7 @@ class MainBottomNavView extends GetView<MainBottomNavController> {
               //   width: 4.0
               // )
             ),
-            child: const Icon(Icons.camera_alt_outlined,color: Colors.black,)),
+            child: Icon(Icons.camera_alt_outlined,color: AppColors.bgColor,)),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(

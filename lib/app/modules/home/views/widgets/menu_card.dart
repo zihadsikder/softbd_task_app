@@ -21,10 +21,12 @@ class MenuCard extends StatelessWidget {
     return Column(
       children: [
         Container(
-            width: 70,
-            height: 70,
+            width: 80,
+            height: 80,
             decoration: BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(6.0)),
               color: AppColors.grideViewBgColor,
+              
             ),
             child: IconButton(
               onPressed: onPressed,

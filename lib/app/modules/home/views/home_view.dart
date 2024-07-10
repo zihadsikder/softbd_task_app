@@ -17,10 +17,10 @@ class HomeView extends GetView<HomeController> {
     var screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
         body: SafeArea(
-          child: Padding(
-                padding: const EdgeInsets.all(10.0),
-          child: SingleChildScrollView(
-            child: Column(
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: SingleChildScrollView(
+          child: Column(
             children: [
               const ProfileSummaryCard(
                 text: 'Flutter Task',
@@ -177,13 +177,13 @@ class HomeView extends GetView<HomeController> {
                 ],
               ),
               const SizedBox(
-                height: 8.0,
+                height: 16.0,
               ),
               LayoutBuilder(
                 builder: (context, constraints) {
                   int crossAxisCount = screenWidth > 600 ? 6 : 3;
                   return SizedBox(
-                    height: (screenWidth > 600 ? 1 : 2) * 100.0,
+                    height: (screenWidth > 600 ? 1 : 4) * 100.0,
                     // Adjust this height as needed
                     child: GridView.builder(
                       itemCount: 6,
@@ -205,9 +205,9 @@ class HomeView extends GetView<HomeController> {
                 },
               )
             ],
-                  ),
           ),
-              ),
-        ));
+        ),
+      ),
+    ));
   }
 }
