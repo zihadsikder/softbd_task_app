@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:softbd_task/app/core/config/app_text_style.dart';
+import 'package:softbd_task/app/core/constants/app_assets.dart';
 
 class ProfileSummaryCard extends StatelessWidget {
   const ProfileSummaryCard({super.key, required this.text});
@@ -22,7 +23,7 @@ class ProfileSummaryCard extends StatelessWidget {
             ),
             IconButton(
                 onPressed: () {},
-                icon: const Icon(Icons.notifications_active_outlined)),
+                icon: Image.asset(AppAssets.notification),),
           ],
         ),
       ],

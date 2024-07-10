@@ -17,8 +17,8 @@ class MainBottomNavView extends GetView<MainBottomNavController> {
         child: Container(
           width: 70,
             height: 70,
-            decoration: const BoxDecoration(
-              color: Color(0xff518852),
+            decoration:  BoxDecoration(
+              gradient: AppColors.appGradient,
               shape: BoxShape.circle,
               // border: Border.all(
               //   color: Colors.grey,
@@ -31,9 +31,10 @@ class MainBottomNavView extends GetView<MainBottomNavController> {
       bottomNavigationBar: BottomAppBar(
         padding: EdgeInsets.zero,
         shape: const CircularNotchedRectangle(),
-        notchMargin: 6.0,
+        notchMargin: 12.0,
+        color: Colors.white,
         child: Obx(() => BottomNavigationBar(
-          backgroundColor: Colors.grey.shade100,
+          backgroundColor: Colors.transparent,
           elevation: 0,
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(

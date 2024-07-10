@@ -77,10 +77,11 @@ class TimeView extends StatelessWidget {
                             borderRadius: BorderRadius.circular(8.0),
                           ),
                           //padding: const EdgeInsets.only(),
-                          child: const Column(
+                          child:  Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               TimeAndSentenceCard(
+                                index: index,
                                 dayText: 'সকাল',
                                 timeText: '১১:০০ মি.',
                                 cardTimeText: '১১:০০ মি.',

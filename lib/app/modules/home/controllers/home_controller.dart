@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:softbd_task/app/core/constants/app_assets.dart';
 
 class HomeController extends GetxController {
 
@@ -8,37 +9,37 @@ class HomeController extends GetxController {
     {
       'label': 'মেনু নং',
       'subLabel': '০০০০১',
-      'icon': Icons.person_outline_outlined,
+      'icon': AppAssets.menu1,
       'onPressed': () {}
     },
     {
       'label': 'মেনু নং',
       'subLabel': '০০০০২',
-      'icon': Icons.home_outlined,
+      'icon': AppAssets.menu2,
       'onPressed': () {}
     },
     {
       'label': 'মেনু নং',
       'subLabel': '০০০০৩',
-      'icon': Icons.person_pin,
+      'icon': AppAssets.menu3,
       'onPressed': () {}
     },
     {
       'label': 'মেনু নং',
       'subLabel': '০০০০৪',
-      'icon': Icons.camera_enhance,
+      'icon': AppAssets.menu4,
       'onPressed': () {}
     },
     {
       'label': 'মেনু নং',
       'subLabel': '০০০০৫',
-      'icon': Icons.edit_document,
+      'icon': AppAssets.menu5,
       'onPressed': () {}
     },
     {
       'label': 'মেনু নং',
       'subLabel': '০০০০৬',
-      'icon': Icons.settings_display_rounded,
+      'icon': AppAssets.menu6,
       'onPressed': () {}
     },
   ];

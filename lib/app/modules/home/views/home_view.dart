@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:softbd_task/app/core/config/app_colors.dart';
 import 'package:softbd_task/app/core/config/app_text_style.dart';
 import 'package:softbd_task/app/core/constants/app_assets.dart';
 import 'package:softbd_task/app/modules/home/views/widgets/date_container.dart';
@@ -51,7 +52,7 @@ class HomeView extends GetView<HomeController> {
                           label: item['label'],
                           subLabel: item['subLabel'],
                           onPressed: item['onPressed'],
-                          icon: item['icon'],
+                          icon: AssetImage(item['icon']),
                         );
                       },
                     ),
@@ -70,17 +71,34 @@ class HomeView extends GetView<HomeController> {
       children: [
         Column(
           children: [
-            Container(
-                width: 100,
-                height: 100,
-                decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    //color: Colors.black38,
-                    border: Border.all(
-                      color: Colors.grey.shade200,
-                      width: 6.0,
-                    )),
-                child: const Center(child: Text('৬ মাস ৬ দিন'))),
+            Stack(
+              children: [
+                Container(
+                    width: 100,
+                    height: 100,
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        //color: Colors.black38,
+                        border: Border.all(
+                          color: Colors.grey.shade200,
+                          width: 6.0,
+                        )),
+                    child: const Center(child: Text('৬ মাস ৬ দিন'))),
+                Container(
+                  width: 100,
+                  height: 100,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(100),
+                    border: Border(
+                      bottom: BorderSide(
+                        color: AppColors.buttonColor,
+                        width: 6.0,
+                      ),
+                    ),
+                  ),
+                )
+              ],
+            ),
             const SizedBox(
               height: 8.0,
             ),
@@ -201,10 +219,8 @@ class HomeView extends GetView<HomeController> {
                 ),
                 Row(
                   children: [
-                    const Icon(
-                      Icons.location_on,
-                      size: 15,
-                    ),
+                    Image.asset(AppAssets.map,),
+                    const SizedBox(width: 4.0,),
                     Text(
                       'ঢাকা',
                       style: AppTextStyles.subHeadLineStyle(),
