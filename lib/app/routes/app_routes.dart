@@ -6,6 +6,8 @@ abstract class Routes {
   static const HOME = _Paths.HOME;
   static const TIME = _Paths.TIME;
   static const MAIN_BOTTOM_NAV = _Paths.MAIN_BOTTOM_NAV;
+  static const MENU_LIST = _Paths.MENU_LIST;
+  static const ACCOUNT = _Paths.ACCOUNT;
 }
 
 abstract class _Paths {
@@ -13,4 +15,6 @@ abstract class _Paths {
   static const HOME = '/home';
   static const TIME = '/time';
   static const MAIN_BOTTOM_NAV = '/main-bottom-nav';
+  static const MENU_LIST = '/menu-list';
+  static const ACCOUNT = '/account';
 }

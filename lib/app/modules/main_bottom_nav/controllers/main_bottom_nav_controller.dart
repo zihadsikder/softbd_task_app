@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
+import 'package:softbd_task/app/modules/account/views/account_view.dart';
 import 'package:softbd_task/app/modules/home/views/home_view.dart';
+import 'package:softbd_task/app/modules/menu_list/views/menu_list_view.dart';
 import 'package:softbd_task/app/modules/time/views/time_view.dart';
 
 class MainBottomNavController extends GetxController {
@@ -12,9 +14,11 @@ class MainBottomNavController extends GetxController {
     super.onInit();
   }
 
-  List screens = [
+  List screens = const [
     HomeView(),
     TimeView(),
+    MenuListView(),
+    AccountView(),
   ];
 
   void changeIndex(int index) {

@@ -20,25 +20,25 @@ class HomeController extends GetxController {
     {
       'label': 'মেনু নং',
       'subLabel': '০০০০৩',
-      'icon': Icons.settings_outlined,
+      'icon': Icons.person_pin,
       'onPressed': () {}
     },
     {
       'label': 'মেনু নং',
       'subLabel': '০০০০৪',
-      'icon': Icons.notifications_outlined,
+      'icon': Icons.camera_enhance,
       'onPressed': () {}
     },
     {
       'label': 'মেনু নং',
       'subLabel': '০০০০৫',
-      'icon': Icons.message_outlined,
+      'icon': Icons.edit_document,
       'onPressed': () {}
     },
     {
       'label': 'মেনু নং',
       'subLabel': '০০০০৬',
-      'icon': Icons.call_outlined,
+      'icon': Icons.settings_display_rounded,
       'onPressed': () {}
     },
   ];

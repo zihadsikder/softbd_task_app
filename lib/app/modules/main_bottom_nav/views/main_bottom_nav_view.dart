@@ -33,7 +33,7 @@ class MainBottomNavView extends GetView<MainBottomNavController> {
         shape: const CircularNotchedRectangle(),
         notchMargin: 6.0,
         child: Obx(() => BottomNavigationBar(
-          backgroundColor: Colors.grey,
+          backgroundColor: Colors.grey.shade100,
           elevation: 0,
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(

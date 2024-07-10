@@ -39,7 +39,7 @@ class AppTextStyles {
       fontWeight: FontWeight.bold,
       fontSize: fontSize,
       color: color,
-      letterSpacing: 1.7,
+      //letterSpacing: 1.7,
       height: 1.5,
     );
   }
