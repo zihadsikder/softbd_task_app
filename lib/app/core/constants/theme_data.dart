@@ -5,6 +5,7 @@ import 'package:softbd_task/app/core/config/app_text_style.dart';
 class AppThemeData {
   static ThemeData lightThemeData = ThemeData(
     primaryColor: const Color(0xff73a06f),
+    primarySwatch: Colors.green,
     inputDecorationTheme: InputDecorationTheme(
       hintStyle: TextStyle(color: AppColors.hintTextColor),
       border: OutlineInputBorder(
