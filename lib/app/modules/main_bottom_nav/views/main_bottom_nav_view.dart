@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:softbd_task/app/core/config/app_colors.dart';
+import 'package:softbd_task/app/core/constants/app_assets.dart';
 import '../controllers/main_bottom_nav_controller.dart';
 
 class MainBottomNavView extends GetView<MainBottomNavController> {
@@ -25,7 +27,7 @@ class MainBottomNavView extends GetView<MainBottomNavController> {
               //   width: 4.0
               // )
             ),
-            child: Icon(Icons.camera_alt_outlined,color: AppColors.bgColor,)),
+            child: Image.asset(AppAssets.camera)),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
@@ -36,21 +38,21 @@ class MainBottomNavView extends GetView<MainBottomNavController> {
         child: Obx(() => BottomNavigationBar(
           backgroundColor: Colors.transparent,
           elevation: 0,
-          items: const <BottomNavigationBarItem>[
+          items:  <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              icon: Icon(Icons.home_outlined),
+              icon: SvgPicture.asset(AppAssets.home1),
               label: '',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.calendar_month_outlined),
+              icon: SvgPicture.asset(AppAssets.home4),
               label: '',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.menu_open_sharp),
+              icon: SvgPicture.asset(AppAssets.home2),
               label: '',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.person),
+              icon: SvgPicture.asset(AppAssets.home3),
               label: '',
             ),
           ],
