@@ -1,12 +1,9 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:softbd_task/app/core/config/app_colors.dart';
 import 'package:softbd_task/app/core/config/app_text_style.dart';
 import 'package:softbd_task/app/core/constants/app_assets.dart';
-import 'package:softbd_task/app/modules/home/views/widgets/circular_Progress_Painter.dart';
+import 'package:softbd_task/app/core/constants/circular_Progress_Painter.dart';
 import 'package:softbd_task/app/modules/home/views/widgets/date_container.dart';
 import 'package:softbd_task/app/modules/home/views/widgets/menu_card.dart';
 
@@ -93,7 +90,7 @@ class HomeView extends GetView<HomeController> {
                   child: Align(
                     alignment: Alignment.bottomLeft,
                     child: CustomPaint(
-                      size: Size(108, 108),
+                      size: const Size(108, 108),
                       painter: CircularProgressPainter(),
                     ),
                   ),
@@ -194,8 +191,6 @@ class HomeView extends GetView<HomeController> {
     );
   }
 
-
-
   Card get profileCard {
     return Card(
       child: Padding(
@@ -222,8 +217,12 @@ class HomeView extends GetView<HomeController> {
                 ),
                 Row(
                   children: [
-                    Image.asset(AppAssets.map,),
-                    const SizedBox(width: 4.0,),
+                    Image.asset(
+                      AppAssets.map,
+                    ),
+                    const SizedBox(
+                      width: 4.0,
+                    ),
                     Text(
                       'ঢাকা',
                       style: AppTextStyles.subHeadLineStyle(),

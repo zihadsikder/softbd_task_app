@@ -5,18 +5,12 @@ class AppColors {
   static Gradient appGradient = const LinearGradient(
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
-    colors: [
-      Color(0xff79aa5d),
-      Color(0xff518852)
-    ],
+    colors: [Color(0xff79aa5d), Color(0xff518852)],
   );
   static Gradient appGradient2 = const LinearGradient(
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
-    colors: [
-      Colors.black,
-      Colors.black87
-    ],
+    colors: [Colors.black, Colors.black87],
   );
   static Color buttonColor = const Color(0xff518852);
   static Color textColor = const Color(0xffff9197);

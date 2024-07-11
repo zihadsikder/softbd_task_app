@@ -6,11 +6,16 @@ import 'package:softbd_task/app/data/repositories/paragraph_repository.dart';
 class TimeController extends GetxController {
   final isLoading = false.obs;
   final paragraphList = ParagraphRes().obs;
+  final selectedDay = 0.obs;
 
   @override
   void onInit() {
     super.onInit();
     getParagraph();
+  }
+
+  void selectDay(int index) {
+    selectedDay.value = index;
   }
 
   Future<void> getParagraph() async {

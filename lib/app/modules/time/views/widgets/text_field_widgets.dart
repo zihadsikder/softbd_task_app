@@ -45,13 +45,11 @@ class TestFieldWidget extends StatelessWidget {
           maxLength: maxLength,
           maxLines: maxLines,
           decoration: InputDecoration(
-            fillColor: Colors.red,
-            focusColor: Colors.red,
 
             //hintText: hintText,
             label: Row(
               children: [
-                Icon(icon),
+                Icon(icon,color: AppColors.hintTextColor,),
                 const SizedBox(width: 8),
                 Text(
                   hintText,

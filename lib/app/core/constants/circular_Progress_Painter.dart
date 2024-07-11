@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/config/app_colors.dart';
+import '../config/app_colors.dart';
 
 class CircularProgressPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     Paint paint = Paint()
       ..shader = AppColors.appGradient.createShader(
-        Rect.fromCircle(center: Offset(size.width / 2, size.height / 2), radius: 50),
+        Rect.fromCircle(
+            center: Offset(size.width / 2, size.height / 2), radius: 50),
       )
       ..strokeWidth = 8.0
       ..style = PaintingStyle.stroke;

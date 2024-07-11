@@ -119,19 +119,19 @@ class TimeView extends GetView<TimeController> {
   }
 
   Card buildCard() {
-    return const Card(
+    return Card(
       child: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(12.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            DayDate(day: 'রবি', date: '২১'),
-            DayDate(day: 'সোম', date: '২২'),
-            DayDate(day: 'মঙ্গল', date: '২৩'),
-            DayDate(day: 'বুধ', date: '২৪'),
-            DayDate(day: 'বৃহঃ', date: '২৫'),
-            DayDate(day: 'শুক্র', date: '২৬'),
-            DayDate(day: 'শনি', date: '২৭'),
+            DayDate(index : 1, day: 'রবি', date: '২১'),
+            DayDate(index : 2, day: 'সোম', date: '২২'),
+            DayDate(index : 3, day: 'মঙ্গল', date: '২৩'),
+            DayDate(index : 0, day: 'বুধ', date: '২৪'),
+            DayDate(index : 4, day: 'বৃহঃ', date: '২৫'),
+            DayDate(index : 5, day: 'শুক্র', date: '২৬'),
+            DayDate(index : 6, day: 'শনি', date: '২৭'),
           ],
         ),
       ),
