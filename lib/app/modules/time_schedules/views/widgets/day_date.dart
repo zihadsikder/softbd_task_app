@@ -11,11 +11,13 @@ class DayDate extends StatelessWidget {
     required this.day,
     required this.date,
     required this.index,
+    required this.isToday,
   });
 
   final String day;
   final String date;
   final int index;
+  final bool isToday;
 
   final TimeController controller = Get.put(TimeController());
 
@@ -24,7 +26,7 @@ class DayDate extends StatelessWidget {
     return Obx(() {
       bool isSelected = controller.selectedDay.value == index;
       return GestureDetector(
-        onTap: () {
+        onTap: isToday ? null : () {
           controller.selectDay(index);
         },
         child: Container(
@@ -33,8 +35,8 @@ class DayDate extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: const BorderRadius.all(Radius.circular(36)),
             border: Border.all(
-              width: isSelected ? 1.5 : 0.5,
-              color: isSelected ? AppColors.buttonColor : Colors.transparent,
+              width: isSelected || isToday ? 1.5 : 0.5,
+              color: isSelected || isToday ? AppColors.buttonColor : Colors.transparent,
             ),
           ),
           child: Column(

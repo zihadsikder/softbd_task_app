@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 
 import 'package:softbd_task/app/modules/time_schedules/views/screens/test_savings_screen.dart';
 import 'package:softbd_task/app/modules/time_schedules/views/widgets/day_date.dart';
@@ -143,6 +144,9 @@ class TimeView extends GetView<TimeController> {
           return const Center(child: CircularProgressIndicator());
         } else {
           List<Map<String, String>> days = controller.getPreviousAndNextDays();
+          DateTime now = DateTime.now();
+          String today = DateFormat('d MMM yyyy', 'bn_BD').format(now); // Format to match the day format
+
           return SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.all(8.0),
@@ -155,10 +159,13 @@ class TimeView extends GetView<TimeController> {
                       children: days.asMap().entries.map((entry) {
                         int index = entry.key;
                         Map<String, String> dayData = entry.value;
+                        bool isToday = dayData['date'] == today;
+
                         return DayDate(
                           day: dayData['day']!,
                           date: dayData['date']!,
                           index: index,
+                          isToday: isToday,
                         );
                       }).toList(),
                     ),
