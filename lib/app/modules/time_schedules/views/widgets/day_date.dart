@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:softbd_task/app/core/config/app_colors.dart';
-import 'package:softbd_task/app/core/config/app_text_style.dart';
 
+import '../../../../core/config/app_colors.dart';
+import '../../../../core/config/app_text_style.dart';
 import '../../controllers/time_controller.dart';
 
 class DayDate extends StatelessWidget {
@@ -26,8 +26,10 @@ class DayDate extends StatelessWidget {
     return Obx(() {
       bool isSelected = controller.selectedDay.value == index;
       return GestureDetector(
-        onTap: isToday ? null : () {
-          controller.selectDay(index);
+        onTap: () {
+          if (!isToday) {
+            controller.selectDay(index);
+          }
         },
         child: Container(
           width: 50,
@@ -35,8 +37,8 @@ class DayDate extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: const BorderRadius.all(Radius.circular(36)),
             border: Border.all(
-              width: isSelected || isToday ? 1.5 : 0.5,
-              color: isSelected || isToday ? AppColors.buttonColor : Colors.transparent,
+              width: isToday ? 1.5 : (isSelected ? 1.5 : 0.5),
+              color: isToday ? AppColors.buttonColor : (isSelected ? AppColors.buttonColor : Colors.transparent),
             ),
           ),
           child: Column(

@@ -15,7 +15,7 @@ class TimeController extends GetxController {
 
   final isLoading = false.obs;
   final paragraphList = ParagraphRes().obs;
-  final selectedDay = 0.obs;
+  final selectedDay = 7.obs;
 
   @override
   void onInit() {
@@ -26,7 +26,7 @@ class TimeController extends GetxController {
   }
 
   void selectDay(int index) {
-    selectedDay.value = index;
+    selectedDay.value = 7;
   }
 
   Future<void> getParagraph() async {
