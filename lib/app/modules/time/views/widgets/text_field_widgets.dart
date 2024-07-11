@@ -13,7 +13,8 @@ class TestFieldWidget extends StatelessWidget {
     required this.suffixIcon,
     required this.onTapSuffix,
     required this.maxLines,
-    this.maxLength, required this.controller,
+    this.maxLength,
+    required this.controller,
   });
 
   final String hintText;
@@ -29,6 +30,7 @@ class TestFieldWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Row(
@@ -51,7 +53,10 @@ class TestFieldWidget extends StatelessWidget {
             //hintText: hintText,
             label: Row(
               children: [
-                Icon(icon,color: AppColors.hintTextColor,),
+                Icon(
+                  icon,
+                  color: AppColors.hintTextColor,
+                ),
                 const SizedBox(width: 8),
                 Text(
                   hintText,
@@ -67,12 +72,12 @@ class TestFieldWidget extends StatelessWidget {
               ),
             ),
           ),
-          validator: (String? value) {
-            if (value?.trim().isEmpty ?? true) {
-              return 'পূরণ করুন';
-            }
-            return null;
-          },
+          // validator: (String? value) {
+          //   if (value?.trim().isEmpty ?? true) {
+          //     return 'পূরণ করুন';
+          //   }
+          //   return null;
+          // },
         ),
       ],
     );

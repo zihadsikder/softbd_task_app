@@ -12,23 +12,19 @@ class MainBottomNavView extends GetView<MainBottomNavController> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Obx(() => controller.screens[controller.currentIndex]),
-      // Use Obx to update the screen
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.transparent,
         elevation: 0,
         onPressed: () {},
         child: Container(
-            width: 70,
-            height: 70,
-            decoration: BoxDecoration(
-              gradient: AppColors.appGradient,
-              shape: BoxShape.circle,
-              // border: Border.all(
-              //   color: Colors.grey,
-              //   width: 4.0
-              // )
-            ),
-            child: Image.asset(AppAssets.camera)),
+          width: 70,
+          height: 70,
+          decoration: BoxDecoration(
+            gradient: AppColors.appGradient,
+            shape: BoxShape.circle,
+          ),
+          child: Image.asset(AppAssets.camera),
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
@@ -36,62 +32,70 @@ class MainBottomNavView extends GetView<MainBottomNavController> {
         shape: const CircularNotchedRectangle(),
         notchMargin: 12.0,
         color: Colors.white,
-        child: Obx(() =>
-            BottomNavigationBar(
-              backgroundColor: Colors.transparent,
-              elevation: 0,
-              items: <BottomNavigationBarItem>[
-                BottomNavigationBarItem(
-                  icon: controller.currentIndex == 0 ?
-                  SvgPicture.asset(
-                    AppAssets.home11,
-                  ):
-                  SvgPicture.asset(
-                    AppAssets.home1,
-                  ),
-                  label: '',
-                ),
-                BottomNavigationBarItem(
-                  icon:controller.currentIndex == 1 ?
-                  SvgPicture.asset(
-                    AppAssets.home44,
-                  )
-                  :
-                  SvgPicture.asset(
-                    AppAssets.home4,
-                  ),
-                  label: '',
-                ),
-                BottomNavigationBarItem(
-                  icon:controller.currentIndex == 2 ?
-                  SvgPicture.asset(
-                    AppAssets.home22,
-                  ):
-                  SvgPicture.asset(
-                    AppAssets.home2,
-                  ),
-                  label: '',
-                ),
-                BottomNavigationBarItem(
-                  icon:controller.currentIndex == 3 ?
-                  SvgPicture.asset(
-                    AppAssets.home33,
-                  ):
-                  SvgPicture.asset(
-                    AppAssets.home3,
-                  ),
-                  label: '',
-                ),
-              ],
-              onTap: controller.changeIndex,
-              type: BottomNavigationBarType.fixed,
-              currentIndex: controller.currentIndex,
-              selectedItemColor: Colors.black,
-              unselectedItemColor: Colors.black38,
-              showUnselectedLabels: true,
-              showSelectedLabels: true,
-            )),
+        child: Obx(
+          () => BottomNavigationBar(
+            backgroundColor: Colors.transparent,
+            elevation: 0,
+            items: <BottomNavigationBarItem>[
+              customBottomNavigationBarItem(
+                iconPath: AppAssets.home1,
+                activeIconPath: AppAssets.home11,
+                isActive: controller.currentIndex == 0,
+              ),
+              customBottomNavigationBarItem(
+                iconPath: AppAssets.home4,
+                activeIconPath: AppAssets.home44,
+                isActive: controller.currentIndex == 1,
+              ),
+              customBottomNavigationBarItem(
+                iconPath: AppAssets.home2,
+                activeIconPath: AppAssets.home22,
+                isActive: controller.currentIndex == 2,
+              ),
+              customBottomNavigationBarItem(
+                iconPath: AppAssets.home3,
+                activeIconPath: AppAssets.home33,
+                isActive: controller.currentIndex == 3,
+              ),
+            ],
+            onTap: controller.changeIndex,
+            type: BottomNavigationBarType.fixed,
+            currentIndex: controller.currentIndex,
+            selectedItemColor: Colors.black,
+            unselectedItemColor: Colors.black38,
+            showUnselectedLabels: true,
+            showSelectedLabels: true,
+          ),
+        ),
       ),
+    );
+  }
+
+  BottomNavigationBarItem customBottomNavigationBarItem({
+    required String iconPath,
+    required String activeIconPath,
+    required bool isActive,
+  }) {
+    return BottomNavigationBarItem(
+      icon: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          SvgPicture.asset(
+            isActive ? activeIconPath : iconPath,
+          ),
+          const SizedBox(height: 4),
+          if (isActive)
+            Container(
+              width: 4,
+              height: 4,
+              decoration: BoxDecoration(
+                gradient: AppColors.appGradient,
+                borderRadius: BorderRadius.circular(2.0),
+              ),
+            ),
+        ],
+      ),
+      label: '',
     );
   }
 }

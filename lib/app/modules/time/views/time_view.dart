@@ -21,6 +21,7 @@ class TimeView extends GetView<TimeController> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              const SizedBox(height: 24),
               const ProfileSummaryCard(text: 'সময়রেখা'),
               const SizedBox(height: 18),
               Row(

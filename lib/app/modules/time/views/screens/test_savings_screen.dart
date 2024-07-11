@@ -71,7 +71,7 @@ class TestSavingsScreen extends StatelessWidget {
                   if (pickedDate != null) {
                     String formattedDate =
                         DateFormat('yyyy-MM-dd').format(pickedDate);
-                    //controller.dateTEController = formattedDate;
+                    controller.dateTEController.text = formattedDate;
                   }
                 },
                 maxLines: 1,
@@ -108,7 +108,7 @@ class TestSavingsScreen extends StatelessWidget {
                   showDialog(
                       context: context,
                       builder: (BuildContext context) {
-                        return AlertDialogue();
+                        return const AlertDialogue();
                       });
                 },
                 text: 'সংরক্ষণ করুণ',
