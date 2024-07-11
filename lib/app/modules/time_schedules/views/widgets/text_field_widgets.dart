@@ -54,17 +54,15 @@ class TestFieldWidget extends StatelessWidget {
             alignLabelWithHint: true,
             label: Row(
               children: [
-                icon != null ?
-                Icon(
-                  icon,
-                  color: AppColors.hintTextColor,
-                )
-                :
-                const SizedBox.shrink(),
-                icon != null ?
-                const SizedBox(width: 8)
-                :
-                const SizedBox.shrink(),
+                icon != null
+                    ? Icon(
+                        icon,
+                        color: AppColors.hintTextColor,
+                      )
+                    : const SizedBox.shrink(),
+                icon != null
+                    ? const SizedBox(width: 8)
+                    : const SizedBox.shrink(),
                 Text(
                   hintText,
                   style: const TextStyle(overflow: TextOverflow.ellipsis),

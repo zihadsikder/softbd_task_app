@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:softbd_task/app/core/config/app_text_style.dart';
-import 'package:softbd_task/app/modules/time/controllers/time_controller.dart';
-import 'package:softbd_task/app/modules/time/views/widgets/text_field_widgets.dart';
 
 import '../../../../core/widgets/elevated_button_widgets.dart';
+import '../../controllers/time_controller.dart';
 import '../widgets/alert_dialogue.dart';
+import '../widgets/text_field_widgets.dart';
 
 class TestSavingsScreen extends StatelessWidget {
   TestSavingsScreen({super.key});

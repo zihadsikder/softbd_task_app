@@ -2,7 +2,7 @@ import 'package:get/get.dart';
 import 'package:softbd_task/app/modules/account/views/account_view.dart';
 import 'package:softbd_task/app/modules/home/views/home_view.dart';
 import 'package:softbd_task/app/modules/menu_list/views/menu_list_view.dart';
-import 'package:softbd_task/app/modules/time/views/time_view.dart';
+import '../../time_schedules/views/time_view.dart';
 
 class MainBottomNavController extends GetxController {
   var selectedIndex = 0.obs; // Use RxInt for reactivity
@@ -26,7 +26,7 @@ class MainBottomNavController extends GetxController {
       return;
     }
 
-    selectedIndex.value = index; // Update the reactive variable
+    selectedIndex.value = index;
   }
 
   void backToHome() {

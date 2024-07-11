@@ -1,7 +1,8 @@
 import 'package:get/get.dart';
 import 'package:softbd_task/app/modules/home/controllers/home_controller.dart';
 import 'package:softbd_task/app/modules/main_bottom_nav/controllers/main_bottom_nav_controller.dart';
-import 'package:softbd_task/app/modules/time/controllers/time_controller.dart';
+
+import '../../modules/time_schedules/controllers/time_controller.dart';
 
 class IntBinding extends Bindings {
   @override

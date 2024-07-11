@@ -14,6 +14,7 @@ class TimeAndSentenceCard extends StatelessWidget {
     required this.formatText,
     required this.locationText,
   });
+
   final int index;
   final String dayText;
   final String timeText;
@@ -31,8 +32,16 @@ class TimeAndSentenceCard extends StatelessWidget {
           padding: const EdgeInsets.all(16.0),
           child: Column(
             children: [
-              Text(dayText,style: AppTextStyles.headLineStyle(color: index % 2 == 0 ? Colors.black87:Colors.blue),),
-              Text(timeText,style: AppTextStyles.headLineStyle(color: index % 2 == 0 ? Colors.black87:Colors.blue),),
+              Text(
+                dayText,
+                style: AppTextStyles.headLineStyle(
+                    color: index % 2 == 0 ? Colors.black87 : Colors.blue),
+              ),
+              Text(
+                timeText,
+                style: AppTextStyles.headLineStyle(
+                    color: index % 2 == 0 ? Colors.black87 : Colors.blue),
+              ),
             ],
           ),
         ),
@@ -42,7 +51,9 @@ class TimeAndSentenceCard extends StatelessWidget {
             child: Container(
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
-                gradient: index % 2 != 0 ? AppColors.appGradient2 : AppColors.appGradient,
+                gradient: index % 2 != 0
+                    ? AppColors.appGradient2
+                    : AppColors.appGradient,
               ),
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
@@ -58,17 +69,32 @@ class TimeAndSentenceCard extends StatelessWidget {
                         const SizedBox(
                           width: 16.0,
                         ),
-                        Text(cardTimeText,style: AppTextStyles.normalStyle(color: AppColors.bgColor,),),
+                        Text(
+                          cardTimeText,
+                          style: AppTextStyles.normalStyle(
+                            color: AppColors.bgColor,
+                          ),
+                        ),
                       ],
                     ),
                     const SizedBox(
                       height: 12.0,
                     ),
-                    Text(longText,style: AppTextStyles.headLineStyle(color: AppColors.bgColor,),),
+                    Text(
+                      longText,
+                      style: AppTextStyles.headLineStyle(
+                        color: AppColors.bgColor,
+                      ),
+                    ),
                     const SizedBox(
                       height: 12.0,
                     ),
-                    Text(formatText,style: AppTextStyles.normalStyle(color: AppColors.bgColor,),),
+                    Text(
+                      formatText,
+                      style: AppTextStyles.normalStyle(
+                        color: AppColors.bgColor,
+                      ),
+                    ),
                     const SizedBox(
                       height: 12.0,
                     ),
@@ -81,7 +107,12 @@ class TimeAndSentenceCard extends StatelessWidget {
                         const SizedBox(
                           width: 16.0,
                         ),
-                        Text(locationText,style: AppTextStyles.normalStyle(color: AppColors.bgColor,),),
+                        Text(
+                          locationText,
+                          style: AppTextStyles.normalStyle(
+                            color: AppColors.bgColor,
+                          ),
+                        ),
                       ],
                     ),
                   ],

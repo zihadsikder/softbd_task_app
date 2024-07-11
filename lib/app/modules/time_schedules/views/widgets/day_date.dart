@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:softbd_task/app/core/config/app_colors.dart';
 import 'package:softbd_task/app/core/config/app_text_style.dart';
-import 'package:softbd_task/app/modules/time/controllers/time_controller.dart';
+
+import '../../controllers/time_controller.dart';
 
 class DayDate extends StatelessWidget {
   DayDate({
     super.key,
     required this.day,
-    required this.date, required this.index,
+    required this.date,
+    required this.index,
   });
 
   final String day;
@@ -26,7 +28,7 @@ class DayDate extends StatelessWidget {
           controller.selectDay(index);
         },
         child: Container(
-          width: 40,
+          width: 50,
           height: 70,
           decoration: BoxDecoration(
             borderRadius: const BorderRadius.all(Radius.circular(36)),

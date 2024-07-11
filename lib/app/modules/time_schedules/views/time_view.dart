@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:softbd_task/app/modules/time/views/screens/test_savings_screen.dart';
-import 'package:softbd_task/app/modules/time/views/widgets/day_date.dart';
-import 'package:softbd_task/app/modules/time/views/widgets/time_and_sentence_card.dart';
+
+import 'package:softbd_task/app/modules/time_schedules/views/screens/test_savings_screen.dart';
+import 'package:softbd_task/app/modules/time_schedules/views/widgets/day_date.dart';
+import 'package:softbd_task/app/modules/time_schedules/views/widgets/time_and_sentence_card.dart';
 
 import '../../../core/config/app_colors.dart';
 import '../../../core/config/app_text_style.dart';
@@ -28,7 +29,7 @@ class TimeView extends GetView<TimeController> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'আজ, ১২ জুলাই',
+                    'আজ, ${controller.getFormattedCurrentDate()}',
                     style: AppTextStyles.headLineStyle(),
                   ),
                   Padding(
@@ -54,8 +55,7 @@ class TimeView extends GetView<TimeController> {
                         },
                         child: Text(
                           'নতুন যোগ করুন',
-                          style:
-                              AppTextStyles.normalStyle(color: Colors.white),
+                          style: AppTextStyles.normalStyle(color: Colors.white),
                         ),
                       ),
                     ),
@@ -93,9 +93,11 @@ class TimeView extends GetView<TimeController> {
                         return ListView.builder(
                           shrinkWrap: true,
                           physics: const NeverScrollableScrollPhysics(),
-                          itemCount: controller.paragraphList.value.data!.length,
+                          itemCount:
+                              controller.paragraphList.value.data!.length,
                           itemBuilder: (context, index) {
-                            final item = controller.paragraphList.value.data![index];
+                            final item =
+                                controller.paragraphList.value.data![index];
                             return Container(
                               margin: const EdgeInsets.only(bottom: 16.0),
                               decoration: BoxDecoration(
@@ -107,9 +109,12 @@ class TimeView extends GetView<TimeController> {
                                 children: [
                                   TimeAndSentenceCard(
                                     index: index,
-                                    dayText: controller.getTimeOfDay(item.date ?? 'N/A'),
-                                    timeText: '${controller.formatTime(item.date ?? 'N/A')} মি.',
-                                    cardTimeText: '${controller.formatTime(item.date ?? 'N/A')} মি.',
+                                    dayText: controller
+                                        .getTimeOfDay(item.date ?? 'N/A'),
+                                    timeText:
+                                        '${controller.formatTime(item.date ?? 'N/A')} মি.',
+                                    cardTimeText:
+                                        '${controller.formatTime(item.date ?? 'N/A')} মি.',
                                     longText: item.name ?? 'N/A',
                                     formatText: item.category ?? 'N/A',
                                     locationText: item.location ?? 'N/A',
@@ -121,7 +126,6 @@ class TimeView extends GetView<TimeController> {
                         );
                       }
                     }),
-
                   ],
                 ),
               ),
@@ -132,23 +136,40 @@ class TimeView extends GetView<TimeController> {
     );
   }
 
-  Card buildCard() {
+  buildCard() {
     return Card(
-      child: Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            DayDate(index : 1, day: 'রবি', date: '২১'),
-            DayDate(index : 2, day: 'সোম', date: '২২'),
-            DayDate(index : 3, day: 'মঙ্গল', date: '২৩'),
-            DayDate(index : 0, day: 'বুধ', date: '২৪'),
-            DayDate(index : 4, day: 'বৃহঃ', date: '২৫'),
-            DayDate(index : 5, day: 'শুক্র', date: '২৬'),
-            DayDate(index : 6, day: 'শনি', date: '২৭'),
-          ],
-        ),
-      ),
+      child: Obx(() {
+        if (controller.isLoading.value) {
+          return const Center(child: CircularProgressIndicator());
+        } else {
+          List<Map<String, String>> days = controller.getPreviousAndNextDays();
+          return SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: [
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: days.asMap().entries.map((entry) {
+                        int index = entry.key;
+                        Map<String, String> dayData = entry.value;
+                        return DayDate(
+                          day: dayData['day']!,
+                          date: dayData['date']!,
+                          index: index,
+                        );
+                      }).toList(),
+                    ),
+                  ),
+                  // Add other widgets below if necessary
+                ],
+              ),
+            ),
+          );
+        }
+      }),
     );
   }
 }

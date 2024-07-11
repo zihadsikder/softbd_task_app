@@ -8,8 +8,8 @@ import '../modules/main_bottom_nav/bindings/main_bottom_nav_binding.dart';
 import '../modules/main_bottom_nav/views/main_bottom_nav_view.dart';
 import '../modules/menu_list/bindings/menu_list_binding.dart';
 import '../modules/menu_list/views/menu_list_view.dart';
-import '../modules/time/bindings/time_binding.dart';
-import '../modules/time/views/time_view.dart';
+import '../modules/time_schedules/bindings/time_binding.dart';
+import '../modules/time_schedules/views/time_view.dart';
 
 part 'app_routes.dart';
 
