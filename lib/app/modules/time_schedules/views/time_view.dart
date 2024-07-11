@@ -86,7 +86,9 @@ class TimeView extends GetView<TimeController> {
                     ),
                     Obx(() {
                       if (controller.isLoading.value) {
-                        return const Center(child: CircularProgressIndicator());
+                        return const Center(child: CircularProgressIndicator(
+                          color: Colors.green,
+                        ));
                       } else if (controller.paragraphList.value.data == null ||
                           controller.paragraphList.value.data!.isEmpty) {
                         return const Center(child: Text('কোন ডেটা নেই'));
@@ -141,7 +143,9 @@ class TimeView extends GetView<TimeController> {
     return Card(
       child: Obx(() {
         if (controller.isLoading.value) {
-          return const Center(child: CircularProgressIndicator());
+          return const Center(child: CircularProgressIndicator(
+            color: Colors.green,
+          ));
         } else {
           List<Map<String, String>> days = controller.getPreviousAndNextDays();
           DateTime now = DateTime.now();
