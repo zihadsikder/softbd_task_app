@@ -38,7 +38,9 @@ class DayDate extends StatelessWidget {
             borderRadius: const BorderRadius.all(Radius.circular(36)),
             border: Border.all(
               width: isToday ? 1.5 : (isSelected ? 1.5 : 0.5),
-              color: isToday ? AppColors.buttonColor : (isSelected ? AppColors.buttonColor : Colors.transparent),
+              color: isToday
+                  ? AppColors.buttonColor
+                  : (isSelected ? AppColors.buttonColor : Colors.transparent),
             ),
           ),
           child: Column(

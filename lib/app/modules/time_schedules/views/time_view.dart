@@ -160,16 +160,6 @@ class TimeView extends GetView<TimeController> {
                         int index = entry.key;
                         Map<String, String> dayData = entry.value;
 
-                        // Ensure the container is shown at index 7
-                        // if (index == 7) {
-                        //   return DayDate(
-                        //     day: dayData['day']!,
-                        //     date: dayData['date']!,
-                        //     index: index,
-                        //     isToday: true, // Marking as today for styling
-                        //   );
-                        // }
-
                         return DayDate(
                           day: dayData['day']!,
                           date: dayData['date']!,
