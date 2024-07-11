@@ -35,7 +35,7 @@ class AppTextStyles {
     );
   }
 
-  static TextStyle headLineStyle({Color color = Colors.white}) {
+  static TextStyle headLineStyle({Color color = Colors.black}) {
     return GoogleFonts.notoSerifBengali(
       fontSize: 18,
       fontWeight: FontWeight.w600,

@@ -7,8 +7,9 @@ import 'package:softbd_task/app/modules/time/views/widgets/time_and_sentence_car
 import '../../../core/config/app_colors.dart';
 import '../../../core/config/app_text_style.dart';
 import '../../../core/widgets/profile_summary_card.dart';
+import '../controllers/time_controller.dart';
 
-class TimeView extends StatelessWidget {
+class TimeView extends GetView<TimeController> {
   const TimeView({super.key});
 
   @override
@@ -46,13 +47,12 @@ class TimeView extends StatelessWidget {
                   ),
                 ],
               ),
-
               const SizedBox(height: 16.0),
               buildCard(),
               const SizedBox(height: 16.0),
               Container(
                 decoration: BoxDecoration(
-                  color: Colors.grey.shade100,
+                    color: Colors.grey.shade100,
                     borderRadius: const BorderRadius.all(Radius.circular(4)),
                     border: Border.all(
                       color: AppColors.textFieldOutlineColor,
@@ -63,38 +63,51 @@ class TimeView extends StatelessWidget {
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Text('আজকের কার্যক্রম',style: AppTextStyles.headLineStyle(),),
+                      child: Text(
+                        'আজকের কার্যক্রম',
+                        style: AppTextStyles.headLineStyle(),
+                      ),
                     ),
-                    ListView.builder(
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      itemCount: 7,
-                      itemBuilder: (context, index) {
-                        return Container(
-                          margin: const EdgeInsets.only(bottom: 16.0),
-                          decoration: BoxDecoration(
-                            color: AppColors.textFieldOutlineColor,
-                            borderRadius: BorderRadius.circular(8.0),
-                          ),
-                          //padding: const EdgeInsets.only(),
-                          child:  Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              TimeAndSentenceCard(
-                                index: index,
-                                dayText: 'সকাল',
-                                timeText: '১১:০০ মি.',
-                                cardTimeText: '১১:০০ মি.',
-                                longText:
-                                'ুিট্বা্ক্বকটচজকাবা্বপটচবাপট্বাবপটবআবপট্বাচ',
-                                formatText: 'বাক্য',
-                                locationText: 'ঢাকা, বাংলাদেশ',
+                    Obx(() {
+                      if (controller.isLoading.value) {
+                        return const Center(child: CircularProgressIndicator());
+                      } else if (controller.paragraphList.value.data == null ||
+                          controller.paragraphList.value.data!.isEmpty) {
+                        return const Center(child: Text('কোন ডেটা নেই'));
+                      } else {
+                        return ListView.builder(
+                          shrinkWrap: true,
+                          physics: const NeverScrollableScrollPhysics(),
+                          itemCount:
+                              controller.paragraphList.value.data!.length,
+                          itemBuilder: (context, index) {
+                            final item =
+                                controller.paragraphList.value.data![index];
+                            return Container(
+                              margin: const EdgeInsets.only(bottom: 16.0),
+                              decoration: BoxDecoration(
+                                color: AppColors.textFieldOutlineColor,
+                                borderRadius: BorderRadius.circular(8.0),
                               ),
-                            ],
-                          ),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  TimeAndSentenceCard(
+                                    index: index,
+                                    dayText: 'সকাল',
+                                    timeText: item.date ?? 'N/A',
+                                    cardTimeText: item.date ?? 'N/A',
+                                    longText: item.name ?? 'N/A',
+                                    formatText: item.category ?? 'N/A',
+                                    locationText: item.location ?? 'N/A',
+                                  ),
+                                ],
+                              ),
+                            );
+                          },
                         );
-                      },
-                    ),
+                      }
+                    }),
                   ],
                 ),
               ),
