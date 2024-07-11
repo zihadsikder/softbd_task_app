@@ -68,6 +68,49 @@ class TimeView extends GetView<TimeController> {
                         style: AppTextStyles.headLineStyle(),
                       ),
                     ),
+                    // Obx(() {
+                    //   if (controller.isLoading.value) {
+                    //     return const Center(child: CircularProgressIndicator());
+                    //   } else if (controller.paragraphList.value.data == null ||
+                    //       controller.paragraphList.value.data!.isEmpty) {
+                    //     return const Center(child: Text('কোন ডেটা নেই'));
+                    //   } else {
+                    //     return ListView.builder(
+                    //       shrinkWrap: true,
+                    //       physics: const NeverScrollableScrollPhysics(),
+                    //       itemCount:
+                    //           controller.paragraphList.value.data!.length,
+                    //       itemBuilder: (context, index) {
+                    //         final item =
+                    //             controller.paragraphList.value.data![index];
+                    //         return Container(
+                    //           margin: const EdgeInsets.only(bottom: 16.0),
+                    //           decoration: BoxDecoration(
+                    //             color: AppColors.textFieldOutlineColor,
+                    //             borderRadius: BorderRadius.circular(8.0),
+                    //           ),
+                    //           child: Column(
+                    //             crossAxisAlignment: CrossAxisAlignment.start,
+                    //             children: [
+                    //               TimeAndSentenceCard(
+                    //                 index: index,
+                    //                 // dayText: 'সকাল',
+                    //                 // timeText: '${item.date ?? 'N/A'} মি.',
+                    //                 // cardTimeText: '${item.date ?? 'N/A'} মি.',
+                    //                 dayText: controller.getTimeOfDay(item.date ?? 'N/A'),
+                    //                 timeText: '${controller.formatTime(item.date ?? 'N/A')}',
+                    //                 cardTimeText: '${controller.formatTime(item.date ?? 'N/A')}',
+                    //                 longText: item.name ?? 'N/A',
+                    //                 formatText: item.category ?? 'N/A',
+                    //                 locationText: item.location ?? 'N/A',
+                    //               ),
+                    //             ],
+                    //           ),
+                    //         );
+                    //       },
+                    //     );
+                    //   }
+                    // }),
                     Obx(() {
                       if (controller.isLoading.value) {
                         return const Center(child: CircularProgressIndicator());
@@ -78,11 +121,9 @@ class TimeView extends GetView<TimeController> {
                         return ListView.builder(
                           shrinkWrap: true,
                           physics: const NeverScrollableScrollPhysics(),
-                          itemCount:
-                              controller.paragraphList.value.data!.length,
+                          itemCount: controller.paragraphList.value.data!.length,
                           itemBuilder: (context, index) {
-                            final item =
-                                controller.paragraphList.value.data![index];
+                            final item = controller.paragraphList.value.data![index];
                             return Container(
                               margin: const EdgeInsets.only(bottom: 16.0),
                               decoration: BoxDecoration(
@@ -94,9 +135,9 @@ class TimeView extends GetView<TimeController> {
                                 children: [
                                   TimeAndSentenceCard(
                                     index: index,
-                                    dayText: 'সকাল',
-                                    timeText: item.date ?? 'N/A',
-                                    cardTimeText: item.date ?? 'N/A',
+                                    dayText: controller.getTimeOfDay(item.date ?? 'N/A'),
+                                    timeText: '${controller.formatTime(item.date ?? 'N/A')} মি.',
+                                    cardTimeText: '${controller.formatTime(item.date ?? 'N/A')} মি.',
                                     longText: item.name ?? 'N/A',
                                     formatText: item.category ?? 'N/A',
                                     locationText: item.location ?? 'N/A',
@@ -108,6 +149,7 @@ class TimeView extends GetView<TimeController> {
                         );
                       }
                     }),
+
                   ],
                 ),
               ),

@@ -4,6 +4,7 @@ class AppAssets {
   static const String notification= '$imagePath/notification.png';
   static const String map = '$imagePath/map.png';
   static const String camera = '$imagePath/camera.png';
+  static const String mark = '$imagePath/rightmark.png';
   static const String home1 = '$imagePath/Home2.svg';
   static const String home4 = '$imagePath/home1.svg';
   static const String home2 = '$imagePath/Home4.svg';

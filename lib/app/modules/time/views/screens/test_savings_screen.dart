@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:softbd_task/app/core/config/app_colors.dart';
 import 'package:softbd_task/app/core/config/app_text_style.dart';
+import 'package:softbd_task/app/core/constants/app_assets.dart';
 import 'package:softbd_task/app/modules/time/views/widgets/text_field_widgets.dart';
 
 class TestSavingsScreen extends StatelessWidget {
@@ -95,7 +97,40 @@ class TestSavingsScreen extends StatelessWidget {
                   width: double.infinity,
                   height: 48,
                   child: ElevatedButton(
-                      onPressed: () {}, child: const Text('সংরক্ষণ করুণ')))
+                      onPressed: () {
+                        showDialog(context: context, builder: (BuildContext context){
+                          return AlertDialog(
+
+                            title: Image.asset(AppAssets.mark,width: 96,height: 96,),
+                            content: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                 Text('নতুন অনুচছেদ সংরক্ষণ',style: AppTextStyles.headLineStyle(),),
+                               Center(child: Text('আপনার সময়রেখাতে নতুন অনুচছেদ সংরক্ষণ সম্পূর্ণ হয়েছে',style: AppTextStyles.subHeadLineStyle(),)),
+                              ],
+                            ),
+
+                            actions: [
+                              SizedBox(
+                                  width: double.infinity,
+                                  height: 56,
+                                  child: Column(
+                                    children: [
+                                      ElevatedButton(onPressed: (){
+                                        Navigator.of(context).pop();
+                                      }, child: Text('আরও যোগ করুন',style: AppTextStyles.headLineStyle(color: AppColors.bgColor),)),
+                                    ],
+                                  ))
+
+                            ],
+
+                          );
+
+                        });
+
+
+                      }, child: const Text('সংরক্ষণ করুণ')))
             ],
           ),
         ),
