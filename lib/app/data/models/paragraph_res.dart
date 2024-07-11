@@ -1,7 +1,3 @@
-// To parse this JSON data, do
-//
-//     final paragraphRes = paragraphResFromJson(jsonString);
-
 import 'dart:convert';
 
 ParagraphRes paragraphResFromJson(String str) => ParagraphRes.fromJson(json.decode(str));
@@ -9,14 +5,14 @@ ParagraphRes paragraphResFromJson(String str) => ParagraphRes.fromJson(json.deco
 String paragraphResToJson(ParagraphRes data) => json.encode(data.toJson());
 
 class ParagraphRes {
-  final List<Datum>? data;
+  final List<Data>? data;
 
   ParagraphRes({
     this.data,
   });
 
   factory ParagraphRes.fromJson(Map<String, dynamic> json) => ParagraphRes(
-    data: json["data"] == null ? [] : List<Datum>.from(json["data"]!.map((x) => Datum.fromJson(x))),
+    data: json["data"] == null ? [] : List<Data>.from(json["data"]!.map((x) => Data.fromJson(x))),
   );
 
   Map<String, dynamic> toJson() => {
@@ -24,20 +20,20 @@ class ParagraphRes {
   };
 }
 
-class Datum {
+class Data {
   final String? date;
   final String? name;
   final String? category;
   final String? location;
 
-  Datum({
+  Data({
     this.date,
     this.name,
     this.category,
     this.location,
   });
 
-  factory Datum.fromJson(Map<String, dynamic> json) => Datum(
+  factory Data.fromJson(Map<String, dynamic> json) => Data(
     date: json["date"],
     name: json["name"],
     category: json["category"],
