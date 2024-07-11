@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:softbd_task/app/data/models/network_response.dart';
@@ -5,6 +6,13 @@ import 'package:softbd_task/app/data/models/paragraph_res.dart';
 import 'package:softbd_task/app/data/repositories/paragraph_repository.dart';
 
 class TimeController extends GetxController {
+
+  final TextEditingController text1TEController = TextEditingController();
+  final TextEditingController dateTEController = TextEditingController();
+  final TextEditingController mapTEController = TextEditingController();
+  final TextEditingController text2TEController = TextEditingController();
+  final TextEditingController text3TEController = TextEditingController();
+
   final isLoading = false.obs;
   final paragraphList = ParagraphRes().obs;
   final selectedDay = 0.obs;

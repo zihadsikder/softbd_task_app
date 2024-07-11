@@ -24,7 +24,7 @@ class HomeView extends GetView<HomeController> {
           child: Column(
             children: [
               const ProfileSummaryCard(
-                text: 'Flutter Task',
+                text: '',
               ),
               profileCard,
               const SizedBox(

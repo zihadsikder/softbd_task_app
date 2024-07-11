@@ -4,23 +4,23 @@ import 'package:softbd_task/app/core/config/app_text_style.dart';
 
 class AppThemeData {
   static ThemeData lightThemeData = ThemeData(
-    primaryColor: const Color(0xff73a06f),
-    primarySwatch: Colors.green,
+    primaryColor: const Color(0xffc5c7c5),
+    primarySwatch: Colors.grey,
     inputDecorationTheme: InputDecorationTheme(
       hintStyle: TextStyle(color: AppColors.hintTextColor),
       border: OutlineInputBorder(
         borderSide: BorderSide(
-          color: AppColors.grideViewBgColor,
+          color: AppColors.hintTextColor,
         ),
       ),
       focusedBorder: OutlineInputBorder(
         borderSide: BorderSide(
-          color: AppColors.grideViewBgColor,
+          color: AppColors.hintTextColor,
         ),
       ),
       enabledBorder: OutlineInputBorder(
         borderSide: BorderSide(
-          color: AppColors.grideViewBgColor,
+          color: AppColors.hintTextColor,
         ),
       ),
       errorBorder: const OutlineInputBorder(
@@ -31,7 +31,7 @@ class AppThemeData {
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        backgroundColor: AppColors.buttonColor,
+        backgroundColor: Colors.transparent,
         foregroundColor: AppColors.bgColor,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         //padding: const EdgeInsets.symmetric(horizontal: 20),

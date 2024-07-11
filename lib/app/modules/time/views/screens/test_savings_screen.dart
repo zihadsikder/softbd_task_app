@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:softbd_task/app/core/config/app_colors.dart';
 import 'package:softbd_task/app/core/config/app_text_style.dart';
-import 'package:softbd_task/app/core/constants/app_assets.dart';
+import 'package:softbd_task/app/modules/time/controllers/time_controller.dart';
 import 'package:softbd_task/app/modules/time/views/widgets/text_field_widgets.dart';
 
+import '../../../../core/widgets/elevated_button_widgets.dart';
+import '../widgets/alert_dialogue.dart';
+
 class TestSavingsScreen extends StatelessWidget {
-  const TestSavingsScreen({super.key});
+  TestSavingsScreen({super.key});
+
+  final TimeController controller = Get.put(TimeController());
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +35,7 @@ class TestSavingsScreen extends StatelessWidget {
                 icon: null,
                 maxLines: 1,
                 maxLength: 45,
+                controller: controller.text1TEController,
               ),
               const SizedBox(
                 height: 4.0,
@@ -43,17 +49,19 @@ class TestSavingsScreen extends StatelessWidget {
                 suffixIcon: Icons.arrow_forward_ios_outlined,
                 onTapSuffix: () {},
                 maxLines: 1,
+                controller: controller.text2TEController,
               ),
               const SizedBox(
                 height: 20.0,
               ),
               TestFieldWidget(
+                controller: controller.dateTEController,
                 hintText: 'নির্বাচন করুন',
                 headTitle: 'তারিখ ও সময়',
                 title: '',
                 icon: Icons.date_range_outlined,
                 suffixIcon: Icons.arrow_forward_ios_outlined,
-                onTapSuffix:  () async {
+                onTapSuffix: () async {
                   DateTime? pickedDate = await showDatePicker(
                     context: context,
                     initialDate: DateTime.now(),
@@ -62,8 +70,8 @@ class TestSavingsScreen extends StatelessWidget {
                   );
                   if (pickedDate != null) {
                     String formattedDate =
-                    DateFormat('yyyy-MM-dd').format(pickedDate);
-                    //controller.dobController.text = formattedDate;
+                        DateFormat('yyyy-MM-dd').format(pickedDate);
+                    //controller.dateTEController = formattedDate;
                   }
                 },
                 maxLines: 1,
@@ -79,6 +87,7 @@ class TestSavingsScreen extends StatelessWidget {
                 suffixIcon: Icons.arrow_forward_ios_outlined,
                 onTapSuffix: () {},
                 maxLines: 1,
+                controller: controller.mapTEController,
               ),
               const SizedBox(
                 height: 20.0,
@@ -92,45 +101,18 @@ class TestSavingsScreen extends StatelessWidget {
                 onTapSuffix: () {},
                 maxLines: 6,
                 maxLength: 120,
+                controller: controller.text3TEController,
               ),
-              SizedBox(
-                  width: double.infinity,
-                  height: 48,
-                  child: ElevatedButton(
-                      onPressed: () {
-                        showDialog(context: context, builder: (BuildContext context){
-                          return AlertDialog(
-
-                            title: Image.asset(AppAssets.mark,width: 96,height: 96,),
-                            content: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                 Text('নতুন অনুচছেদ সংরক্ষণ',style: AppTextStyles.headLineStyle(),),
-                               Center(child: Text('আপনার সময়রেখাতে নতুন অনুচছেদ সংরক্ষণ সম্পূর্ণ হয়েছে',style: AppTextStyles.subHeadLineStyle(),)),
-                              ],
-                            ),
-
-                            actions: [
-                              SizedBox(
-                                  width: double.infinity,
-                                  height: 56,
-                                  child: Column(
-                                    children: [
-                                      ElevatedButton(onPressed: (){
-                                        Navigator.of(context).pop();
-                                      }, child: Text('আরও যোগ করুন',style: AppTextStyles.headLineStyle(color: AppColors.bgColor),)),
-                                    ],
-                                  ))
-
-                            ],
-
-                          );
-
-                        });
-
-
-                      }, child: const Text('সংরক্ষণ করুণ')))
+              ElevatedButtonWidgets(
+                onPressed: () {
+                  showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialogue();
+                      });
+                },
+                text: 'সংরক্ষণ করুণ',
+              )
             ],
           ),
         ),
@@ -138,3 +120,4 @@ class TestSavingsScreen extends StatelessWidget {
     );
   }
 }
+

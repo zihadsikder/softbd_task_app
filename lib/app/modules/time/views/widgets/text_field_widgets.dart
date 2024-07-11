@@ -13,7 +13,7 @@ class TestFieldWidget extends StatelessWidget {
     required this.suffixIcon,
     required this.onTapSuffix,
     required this.maxLines,
-    this.maxLength,
+    this.maxLength, required this.controller,
   });
 
   final String hintText;
@@ -24,10 +24,12 @@ class TestFieldWidget extends StatelessWidget {
   final VoidCallback onTapSuffix;
   final int? maxLines;
   final int? maxLength;
+  final TextEditingController controller;
 
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -44,9 +46,8 @@ class TestFieldWidget extends StatelessWidget {
         TextFormField(
           maxLength: maxLength,
           maxLines: maxLines,
-
+          controller: controller,
           decoration: InputDecoration(
-
             //hintText: hintText,
             label: Row(
               children: [

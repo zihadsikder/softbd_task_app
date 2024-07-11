@@ -32,16 +32,30 @@ class TimeView extends GetView<TimeController> {
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: TextButton(
-                      style: TextButton.styleFrom(
-                        backgroundColor: AppColors.buttonColor,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        gradient: AppColors.appGradient,
+                        borderRadius: BorderRadius.circular(
+                            8.0), // Match this with the button's shape
                       ),
-                      onPressed: () {
-                        Get.to(() => const TestSavingsScreen());
-                      },
-                      child: Text(
-                        'নতুন যোগ করুন',
-                        style: AppTextStyles.normalStyle(color: Colors.white),
+                      child: TextButton(
+                        style: TextButton.styleFrom(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 24.0, vertical: 12.0),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(
+                                8.0), // Match this with the container's borderRadius
+                          ),
+                          backgroundColor: Colors.transparent,
+                        ),
+                        onPressed: () {
+                          Get.to(() => TestSavingsScreen());
+                        },
+                        child: Text(
+                          'নতুন যোগ করুন',
+                          style:
+                              AppTextStyles.normalStyle(color: Colors.white),
+                        ),
                       ),
                     ),
                   ),
@@ -68,49 +82,6 @@ class TimeView extends GetView<TimeController> {
                         style: AppTextStyles.headLineStyle(),
                       ),
                     ),
-                    // Obx(() {
-                    //   if (controller.isLoading.value) {
-                    //     return const Center(child: CircularProgressIndicator());
-                    //   } else if (controller.paragraphList.value.data == null ||
-                    //       controller.paragraphList.value.data!.isEmpty) {
-                    //     return const Center(child: Text('কোন ডেটা নেই'));
-                    //   } else {
-                    //     return ListView.builder(
-                    //       shrinkWrap: true,
-                    //       physics: const NeverScrollableScrollPhysics(),
-                    //       itemCount:
-                    //           controller.paragraphList.value.data!.length,
-                    //       itemBuilder: (context, index) {
-                    //         final item =
-                    //             controller.paragraphList.value.data![index];
-                    //         return Container(
-                    //           margin: const EdgeInsets.only(bottom: 16.0),
-                    //           decoration: BoxDecoration(
-                    //             color: AppColors.textFieldOutlineColor,
-                    //             borderRadius: BorderRadius.circular(8.0),
-                    //           ),
-                    //           child: Column(
-                    //             crossAxisAlignment: CrossAxisAlignment.start,
-                    //             children: [
-                    //               TimeAndSentenceCard(
-                    //                 index: index,
-                    //                 // dayText: 'সকাল',
-                    //                 // timeText: '${item.date ?? 'N/A'} মি.',
-                    //                 // cardTimeText: '${item.date ?? 'N/A'} মি.',
-                    //                 dayText: controller.getTimeOfDay(item.date ?? 'N/A'),
-                    //                 timeText: '${controller.formatTime(item.date ?? 'N/A')}',
-                    //                 cardTimeText: '${controller.formatTime(item.date ?? 'N/A')}',
-                    //                 longText: item.name ?? 'N/A',
-                    //                 formatText: item.category ?? 'N/A',
-                    //                 locationText: item.location ?? 'N/A',
-                    //               ),
-                    //             ],
-                    //           ),
-                    //         );
-                    //       },
-                    //     );
-                    //   }
-                    // }),
                     Obx(() {
                       if (controller.isLoading.value) {
                         return const Center(child: CircularProgressIndicator());
