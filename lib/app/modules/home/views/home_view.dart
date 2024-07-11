@@ -1,9 +1,12 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:softbd_task/app/core/config/app_colors.dart';
 import 'package:softbd_task/app/core/config/app_text_style.dart';
 import 'package:softbd_task/app/core/constants/app_assets.dart';
+import 'package:softbd_task/app/modules/home/views/widgets/circular_Progress_Painter.dart';
 import 'package:softbd_task/app/modules/home/views/widgets/date_container.dart';
 import 'package:softbd_task/app/modules/home/views/widgets/menu_card.dart';
 
@@ -72,31 +75,29 @@ class HomeView extends GetView<HomeController> {
         Column(
           children: [
             Stack(
+              alignment: Alignment.center,
               children: [
                 Container(
-                    width: 100,
-                    height: 100,
-                    decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        //color: Colors.black38,
-                        border: Border.all(
-                          color: Colors.grey.shade200,
-                          width: 6.0,
-                        )),
-                    child: const Center(child: Text('৬ মাস ৬ দিন'))),
-                Container(
-                  width: 100,
-                  height: 100,
+                  width: 108,
+                  height: 108,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(100),
-                    border: Border(
-                      bottom: BorderSide(
-                        color: AppColors.buttonColor,
-                        width: 6.0,
-                      ),
+                    shape: BoxShape.circle,
+                    border: Border.all(
+                      color: Colors.grey.shade200,
+                      width: 8.0,
                     ),
                   ),
-                )
+                  child: const Center(child: Text('৬ মাস ৬ দিন')),
+                ),
+                Positioned.fill(
+                  child: Align(
+                    alignment: Alignment.bottomLeft,
+                    child: CustomPaint(
+                      size: Size(108, 108),
+                      painter: CircularProgressPainter(),
+                    ),
+                  ),
+                ),
               ],
             ),
             const SizedBox(
@@ -192,6 +193,8 @@ class HomeView extends GetView<HomeController> {
       ],
     );
   }
+
+
 
   Card get profileCard {
     return Card(
