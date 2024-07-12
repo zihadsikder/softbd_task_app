@@ -1,16 +1,11 @@
 # softbd_task
 
-A new Flutter project.
+A new Flutter project by using getx.
 
-## Getting Started
+https://github.com/user-attachments/assets/8f2ab40e-bb9e-4a03-8581-9f4ae9c8bfa4
+https://github.com/user-attachments/assets/5fa3fa26-ccfa-4fe6-9ada-12f6784fa68b
+https://github.com/user-attachments/assets/73c0e659-c677-4df1-8ae8-e4c4df3c0ea8
+https://github.com/user-attachments/assets/ac97e0be-c919-4349-8d32-72aeaf7f5c5d
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# video
+https://youtu.be/uMtQsQwLeyY
