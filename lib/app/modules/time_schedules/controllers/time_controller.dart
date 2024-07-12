@@ -30,13 +30,13 @@ class TimeController extends GetxController {
   }
 
   Future<void> getParagraph() async {
-    isLoading.value = true;
-    final NetworkResponse response = await ParagraphRepository.getParagraph();
 
-    if (response.isSuccess) {
-      paragraphList.value = paragraphResFromJson(response.jsonResponse!);
-    }
-    isLoading.value = false;
+      isLoading.value = true;
+      final NetworkResponse response = await ParagraphRepository.getParagraph();
+      if (response.isSuccess) {
+        paragraphList.value = paragraphResFromJson(response.jsonResponse!);
+      }
+      isLoading.value = false;
   }
 
   String getFormattedCurrentDate() {
