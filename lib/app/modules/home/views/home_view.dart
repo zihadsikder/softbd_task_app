@@ -69,127 +69,108 @@ class HomeView extends GetView<HomeController> {
   Row get timeScheduleView {
     return Row(
       children: [
-        Column(
-          children: [
-            Stack(
-              alignment: Alignment.center,
-              children: [
-                Container(
-                  width: 108,
-                  height: 108,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(
-                      color: Colors.grey.shade200,
-                      width: 8.0,
+        Expanded(
+          flex: 1,
+          child: Column(
+            children: [
+              Stack(
+                alignment: Alignment.center,
+                children: [
+                  Container(
+                    width: 108,
+                    height: 108,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      border: Border.all(
+                        color: Colors.grey.shade200,
+                        width: 8.0,
+                      ),
+                    ),
+                    child: const Center(child: Text('৬ মাস ৬ দিন')),
+                  ),
+                  Positioned.fill(
+                    child: Align(
+                      alignment: Alignment.bottomLeft,
+                      child: CustomPaint(
+                        size: const Size(108, 108),
+                        painter: CircularProgressPainter(),
+                      ),
                     ),
                   ),
-                  child: const Center(child: Text('৬ মাস ৬ দিন')),
-                ),
-                Positioned.fill(
-                  child: Align(
-                    alignment: Alignment.bottomLeft,
-                    child: CustomPaint(
-                      size: const Size(108, 108),
-                      painter: CircularProgressPainter(),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 8.0,
-            ),
-            Text(
-              'সময় অতিবাহিত',
-              style: AppTextStyles.normalStyle(),
-            ),
-          ],
+                ],
+              ),
+              const SizedBox(
+                height: 8.0,
+              ),
+              Text(
+                'সময় অতিবাহিত',
+                style: AppTextStyles.normalStyle(),
+              ),
+            ],
+          ),
         ),
         const SizedBox(
           width: 14,
         ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'মেয়াদকাল',
-              style: AppTextStyles.normalStyle(),
-            ),
-            const Text('১ই জানুয়ারি ২০২৪ - ৩১ই জানুয়ারি ২০৩০'),
-            Text(
-              'আরও বাকি',
-              style: AppTextStyles.normalStyle(color: Colors.red),
-            ),
-            const Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    DateContainer(
-                      text: '০',
-                    ),
-                    SizedBox(
-                      width: 4.0,
-                    ),
-                    DateContainer(
-                      text: '৫',
-                    ),
-                    SizedBox(
-                      width: 16.0,
-                    ),
-                    DateContainer(
-                      text: '০',
-                    ),
-                    SizedBox(
-                      width: 4.0,
-                    ),
-                    DateContainer(
-                      text: '৬',
-                    ),
-                    SizedBox(
-                      width: 16.0,
-                    ),
-                    DateContainer(
-                      text: '১',
-                    ),
-                    SizedBox(
-                      width: 4.0,
-                    ),
-                    DateContainer(
-                      text: '২',
-                    ),
-                  ],
-                ),
-                SizedBox(
-                  height: 4.0,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      width: 8.0,
-                    ),
-                    Text('বছর'),
-                    SizedBox(
-                      width: 36.0,
-                    ),
-                    Text('মাস'),
-                    SizedBox(
-                      width: 36.0,
-                    ),
-                    Text('দিন'),
-                  ],
-                ),
-              ],
-            ),
-          ],
+        Expanded(
+          flex: 2,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'মেয়াদকাল',
+                style: AppTextStyles.normalStyle(),
+              ),
+              const Text('১ই জানুয়ারি ২০২৪ - ৩১ই জানুয়ারি ২০৩০'),
+              Text(
+                'আরও বাকি',
+                style: AppTextStyles.normalStyle(color: Colors.red),
+              ),
+              LayoutBuilder(
+                builder: (context, constraints) {
+                  bool isWide = constraints.maxWidth > 300;
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        mainAxisAlignment: isWide ? MainAxisAlignment.start : MainAxisAlignment.spaceEvenly,
+                        children: [
+                          const DateContainer(text: '০'),
+                          const SizedBox(width: 4.0),
+                          const DateContainer(text: '৫'),
+                          SizedBox(width: isWide ? 16.0 : 4.0),
+                          const DateContainer(text: '০'),
+                          const SizedBox(width: 4.0),
+                          const DateContainer(text: '৬'),
+                          SizedBox(width: isWide ? 16.0 : 4.0),
+                          const DateContainer(text: '১'),
+                          const SizedBox(width: 4.0),
+                          const DateContainer(text: '২'),
+                        ],
+                      ),
+                      const SizedBox(height: 4.0),
+                      Row(
+                        mainAxisAlignment: isWide ? MainAxisAlignment.start : MainAxisAlignment.spaceEvenly,
+                        children: [
+                          const SizedBox(width: 8.0),
+                          const Text('বছর'),
+                          SizedBox(width: isWide ? 36.0 : 4.0),
+                          const Text('মাস'),
+                          SizedBox(width: isWide ? 36.0 : 4.0),
+                          const Text('দিন'),
+                        ],
+                      ),
+                    ],
+                  );
+                },
+              ),
+            ],
+          ),
         ),
       ],
     );
   }
+
 
   Card get profileCard {
     return Card(
