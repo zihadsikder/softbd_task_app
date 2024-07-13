@@ -136,15 +136,12 @@ class HomeView extends GetView<HomeController> {
                         mainAxisAlignment: isWide ? MainAxisAlignment.start : MainAxisAlignment.spaceEvenly,
                         children: [
                           const DateContainer(text: '০'),
-                          const SizedBox(width: 4.0),
                           const DateContainer(text: '৫'),
-                          SizedBox(width: isWide ? 16.0 : 4.0),
+                          SizedBox(width: isWide ? 16.0 : 6.0),
                           const DateContainer(text: '০'),
-                          const SizedBox(width: 4.0),
                           const DateContainer(text: '৬'),
-                          SizedBox(width: isWide ? 16.0 : 4.0),
+                          SizedBox(width: isWide ? 16.0 : 6.0),
                           const DateContainer(text: '১'),
-                          const SizedBox(width: 4.0),
                           const DateContainer(text: '২'),
                         ],
                       ),
@@ -152,7 +149,6 @@ class HomeView extends GetView<HomeController> {
                       Row(
                         mainAxisAlignment: isWide ? MainAxisAlignment.start : MainAxisAlignment.spaceEvenly,
                         children: [
-                          const SizedBox(width: 8.0),
                           const Text('বছর'),
                           SizedBox(width: isWide ? 36.0 : 4.0),
                           const Text('মাস'),
