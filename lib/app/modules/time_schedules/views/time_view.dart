@@ -32,6 +32,8 @@ class TimeView extends GetView<TimeController> {
                     'আজ, ${controller.getFormattedCurrentDate()}',
                     style: AppTextStyles.headLineStyle(),
                   ),
+
+                  /// text add button
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
@@ -63,8 +65,13 @@ class TimeView extends GetView<TimeController> {
                 ],
               ),
               const SizedBox(height: 16.0),
+
+              /// time schedule method
               buildCard(),
+
               const SizedBox(height: 16.0),
+
+              ///task data fetch from api
               Container(
                 decoration: BoxDecoration(
                     color: Colors.grey.shade100,
@@ -137,7 +144,7 @@ class TimeView extends GetView<TimeController> {
       ),
     );
   }
-
+ ///time schedule card 7 previous date + today(selected with a container) + 7 upcoming days
   buildCard() {
     return Card(
       child: Obx(() {

@@ -23,17 +23,25 @@ class HomeView extends GetView<HomeController> {
         child: SingleChildScrollView(
           child: Column(
             children: [
+
               const ProfileSummaryCard(
                 text: '',
               ),
+
+              ///employ information view
               profileCard,
+
               const SizedBox(
-                height: 8.0,
+                height: 8.0
               ),
+
+              ///time process circular progress
               timeScheduleView,
               const SizedBox(
-                height: 16.0,
+                height: 16.0
               ),
+
+              /// menu card gridview
               LayoutBuilder(
                 builder: (context, constraints) {
                   int crossAxisCount = screenWidth > 600 ? 6 : 3;
@@ -65,7 +73,7 @@ class HomeView extends GetView<HomeController> {
       ),
     ));
   }
-
+/// time process method
   Row get timeScheduleView {
     return Row(
       children: [
@@ -167,7 +175,7 @@ class HomeView extends GetView<HomeController> {
     );
   }
 
-
+///profile card method
   Card get profileCard {
     return Card(
       child: Padding(
